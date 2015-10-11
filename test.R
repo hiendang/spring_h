@@ -1,14 +1,18 @@
 library(readr)
 library(xgboost)
-library(Rtsne)
 
 set.seed(1)
+## Loading data
 train <- read_csv("input/train.csv")
 test  <- read_csv("input/test.csv")
 y = train$target
 test_id = test$ID
+
+#removing id and label from data
 train = subset(train, select=-c(ID, target))
 test = subset(test,select=-c(ID))
+
+#
 train[train==-1] = NA
 train[train==""] = NA
 train[train=="[]"] = NA 
