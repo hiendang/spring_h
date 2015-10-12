@@ -121,6 +121,7 @@ for (i in 1:5){
                 max_depth           = 12-i%/%2,  # changed from default of 6
                 subsample           = 0.7,
                 colsample_bytree    = 0.7,
+				min_child_weight    = 6-i%/%2,
                 eval_metric         = "auc"
                 # alpha = 0.0001, 
                 # lambda = 1
@@ -147,7 +148,7 @@ for (i in 1:5){
 				num_class			= 2,
                 subsample           = 0.8,
                 colsample_bytree    = 0.7,
-                min_child_weight    = 3,
+                min_child_weight    = 6-i%/%2,
                 eval_metric         = "mlogloss"
                 # alpha = 0.0001, 
                 # lambda = 1
