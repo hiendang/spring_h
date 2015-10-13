@@ -100,7 +100,7 @@ test = test[not_dup_index]
 gc()
 
 
-n <- 5000
+n <- 20000
 ##
 for (i in 1:5){
 	set.seed(i*181-112)
