@@ -28,7 +28,7 @@ for (i in 1:3){
 	watchlist <- list(eval = dval)
 	param <- list(  objective           = "binary:logistic", 
                 # booster = "gblinear",
-                eta                 = 0.001,
+                eta                 = 0.002,
                 max_depth           = 12-i,  # changed from default of 6
                 subsample           = 0.7,
                 colsample_bytree    = 0.7,
@@ -52,7 +52,7 @@ for (i in 1:3){
 	
 	param <- list(  objective           = "multi:softprob",#"binary:logistic", 
                 # booster = "gblinear",
-                eta                 = 0.001, #0.06, #0.01,
+                eta                 = 0.002, #0.06, #0.01,
                 max_depth           = 11 - i,  # changed from default of 8
 				num_class			= 2,
                 subsample           = 0.8,
