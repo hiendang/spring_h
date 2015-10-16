@@ -13,8 +13,8 @@ train=train[,!(names(train) %in% removing_column)]
 test=test[,!(names(test) %in% removing_column)]
 n <- 100000
 ##
-for (i in 1:5){
-	set.seed(i*13-7)
+for (i in 1:3){
+	set.seed(i*11-3)
 	h <- sample(nrow(train), 130000)
 	val<-train[-h,]
 	gc()
@@ -29,7 +29,7 @@ for (i in 1:5){
 	param <- list(  objective           = "binary:logistic", 
                 # booster = "gblinear",
                 eta                 = 0.001,
-                max_depth           = 12-i%/%2,  # changed from default of 6
+                max_depth           = 12-i,  # changed from default of 6
                 subsample           = 0.7,
                 colsample_bytree    = 0.7,
 		min_child_weight	= 6,
@@ -53,7 +53,7 @@ for (i in 1:5){
 	param <- list(  objective           = "multi:softprob",#"binary:logistic", 
                 # booster = "gblinear",
                 eta                 = 0.001, #0.06, #0.01,
-                max_depth           = 11 - i%/%2,  # changed from default of 8
+                max_depth           = 11 - i,  # changed from default of 8
 				num_class			= 2,
                 subsample           = 0.8,
                 colsample_bytree    = 0.66,
