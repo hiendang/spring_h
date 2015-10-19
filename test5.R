@@ -35,10 +35,10 @@ n <- 100000
 for (i in 1:2){
 	set.seed(i*957-5)
 	h <- sample(nrow(train), 130000)
-	cols <- sample(ncol(train),1000)
-	val<-train[-h,cols]
+	#cols <- sample(ncol(train),1000)
+	val<-train[-h,]
 	gc()
-	dtrain <-train[h,cols]
+	dtrain <-train[h,]
 	gc()
 	dtrain <- xgb.DMatrix(data.matrix(dtrain), label=y[h])
 
@@ -70,10 +70,10 @@ for (i in 1:2){
 	write_csv(submission, paste("xgb5.binary_logistic.csv.",i,sep = "_"))
 	set.seed(i*123-7)
 	h <- sample(nrow(train), 130000)
-	cols <- sample(ncol(train),1000)
-	val<-train[-h,cols]
+	#cols <- sample(ncol(train),1000)
+	val<-train[-h,]
 	gc()
-	dtrain <-train[h,cols]
+	dtrain <-train[h,]
 	gc()
 	dtrain <- xgb.DMatrix(data.matrix(dtrain), label=y[h])
 
