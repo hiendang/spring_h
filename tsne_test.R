@@ -11,6 +11,23 @@ removing_column <- c("VAR_0008","VAR_0009","VAR_0010","VAR_0011","VAR_0012","VAR
 train=train[,!(names(train) %in% removing_column)]
 test=test[,!(names(test) %in% removing_column)]
 d = rbind(train,test)
+
 library(Rtsne)
 tsne <- Rtsne(d, dims = 3, perplexity=30, max_iter = 1000,initial_dims = 1000, check_duplicates=FALSE)
 write.table(tsne$Y, file = "tsne.out.csv",sep=",",row.names=FALSE)
+
+
+#### first 1/3 
+#d <- d[,1:600]
+#train <- 0
+#test <- 0
+#tsne <- Rtsne(d, dims = 3, perplexity=30, max_iter = 2000,initial_dims = 1000, check_duplicates=FALSE)
+#write.table(tsne$Y, file = "tsne.out.csv.1",sep=",",row.names=FALSE)
+
+
+#### second 1/3 
+#d <- d[,600:1200]
+#train<-0
+#test<-0
+#tsne <- Rtsne(d, dims = 3, perplexity=30, max_iter = 1000,initial_dims = 1000, check_duplicates=FALSE)
+#write.table(tsne$Y, file = "tsne.out.csv.2",sep=",",row.names=FALSE)
